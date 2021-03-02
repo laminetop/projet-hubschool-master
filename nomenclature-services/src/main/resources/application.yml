@@ -1,0 +1,34 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    show-sql: true
+    properties:
+      javax:
+        persistence:
+          sharedCache:
+            mode: ALL
+          use_sql_comments: true
+      hibernate:
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+          provider_class: org.hibernate.cache.NoCacheProvider
+        use_outer_join: true
+        format_sql: true
+        archive:
+          autodetection: class
+        connection:
+          autocommit: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ren?characterEncoding=UTF-8
+    username: hubschool
+    password: hubschool
+  cache:
+    ehcache:
+      config: classpath:ehcache.xml
+  application:
+    name: nomenclature-services
+server:
+  port: 8080
